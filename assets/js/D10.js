@@ -94,8 +94,8 @@ console.log("***** ESERCIZIO F *****");
 */
 console.log("***** ESERCIZIO 1 *****");
 
-function dice(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function dice() {
+  return Math.floor(Math.random() * 6) + 1;
 };
 
 console.log(dice(1, 6));
@@ -167,10 +167,10 @@ console.log(onlyLetters([1, 2, "a", "b", 3, "d",]))
 
 console.log("***** ESERCIZIO 6 *****");
 
-const regexEmail= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 function isThisAnEmail(email) {
- return regexEmail.test(email)
+  return regexEmail.test(email)
 };
 console.log(isThisAnEmail("pippo@pluto.com"))
 /* ESERCIZIO 7
@@ -178,11 +178,22 @@ console.log(isThisAnEmail("pippo@pluto.com"))
 */
 console.log("***** ESERCIZIO 7 *****");
 
-function whatDayIsIt(){
+function whatDayIsIt() {
+  let dayName = [
+    "domenica",
+    "lunedì",
+    "martedì",
+    "mercoledì",
+    "giovedì",
+    "venerdì",
+    "sabato"
+  ]
   let currentDate = new Date();
   let currentDay = currentDate.getDay();
-  console.log(currentDay);
+  return dayName[currentDay];
 }
+whatDayIsIt()
+console.log(whatDayIsIt())
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -197,9 +208,30 @@ function whatDayIsIt(){
   }
 */
 
+console.log("***** ESERCIZIO 8 *****");
+
+function rollTheDices(numRolls) {
+  let sum = 0;
+  let values = [];
+
+  for (let i = 0; i < numRolls; i++) {
+    let value = dice();
+    sum += value;
+    values.push(value);
+  }
+  return {
+    sum: sum,
+    values: values
+  };
+}
+
+console.log(rollTheDices(5))
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
+console.log("***** ESERCIZIO 9 *****");
+
+
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
