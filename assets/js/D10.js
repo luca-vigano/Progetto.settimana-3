@@ -394,16 +394,16 @@ console.log("***** ESERCIZIO 11*****");
 
 console.log("***** ESERCIZIO 12*****");
 
-function newestMovie () {
-	let youngYear = parseInt(movies[0].Year);
-	let youngMovie = movies[0];
-	movies.forEach(item => {
-		if (parseInt(item.Year) > youngYear) {
-			youngYear = parseInt(item.Year);
-			youngMovie = item;
-		}
-	});
-	console.log(youngMovie);
+function newestMovie() {
+  let youngYear = parseInt(movies[0].Year);
+  let youngMovie = movies[0];
+  movies.forEach(item => {
+    if (parseInt(item.Year) > youngYear) {
+      youngYear = parseInt(item.Year);
+      youngMovie = item;
+    }
+  });
+  console.log(youngMovie);
 };
 
 newestMovie();
@@ -415,8 +415,8 @@ newestMovie();
 
 console.log("***** ESERCIZIO 13*****");
 
-function countMovies () {
-	console.log(movies.length);
+function countMovies() {
+  console.log(movies.length);
 };
 
 countMovies();
@@ -427,11 +427,11 @@ countMovies();
 */
 console.log("***** ESERCIZIO 14*****");
 
-const onlyTheYears = () => {
-	const arrayYear = movies.map(item => {
-		return item.Year;
-	});
-	console.log(arrayYear);
+function onlyTheYears() {
+  const arrayYear = movies.map(item => {
+    return item.Year;
+  });
+  console.log(arrayYear);
 };
 
 onlyTheYears();
@@ -440,36 +440,107 @@ onlyTheYears();
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
 
+console.log("***** ESERCIZIO 15*****");
+
+
+function onlyInLastMillennium() {
+  const lastMill = movies.filter(item => {
+    return parseInt(item.Year) < 2000;
+  });
+  console.log(lastMill);
+};
+
+onlyInLastMillennium();
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 
+console.log("***** ESERCIZIO 16*****");
+
+function sumAllTheYears() {
+  const sumY = movies.reduce((total, item) => total + parseInt(item.Year), 0);
+  console.log(sumY);
+};
+
+sumAllTheYears();
+
+
+
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+console.log("***** ESERCIZIO 17*****");
+
+function searchByTitle(movieTitle) {
+  const myMovie = movies.filter(item => item.Title.includes(movieTitle));
+  console.log(myMovie);
+  return myMovie;
+};
+
+searchByTitle('Lord');
+
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+console.log("***** ESERCIZIO 18*****");
 
+function searchAndDivide(string) {
+  const result = {
+    "match": searchByTitle(string),
+    "unmatch": [],
+  }
+  result.unmatch = movies.filter(item => !item.Title.includes(string));
+  return result
+}
+
+console.log(searchAndDivide("Lord"))
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+console.log("***** ESERCIZIO 19*****");
 
+function removeIndex(numb) {
+  movies.splice(numb, 1)
+}
+removeIndex(3)
+
+console.log(movies)
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+console.log("***** ESERCIZIO 20 *****");
+
+function getContainer() {
+  return document.getElementById("container")
+}
+
+console.log(getContainer());
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+console.log("***** ESERCIZIO 21 *****");
 
+function getTds() {
+  return document.querySelectorAll("td");
+}
+
+console.log(getTds())
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+console.log("***** ESERCIZIO 22 *****");
+function printTd(){
+let tds = getTds();
+for(let i = 0; i < tds.length; i++)
+  console.log(tds[i].innerText)
+}
+
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
