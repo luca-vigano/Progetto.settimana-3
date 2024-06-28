@@ -535,29 +535,65 @@ console.log(getTds())
 */
 
 console.log("***** ESERCIZIO 22 *****");
-function printTd(){
-let tds = getTds();
-for(let i = 0; i < tds.length; i++)
-  console.log(tds[i].innerText)
+function printTd() {
+  let tds = getTds();
+  for (let i = 0; i < tds.length; i++)
+    console.log(tds[i].innerText)
 }
-
+printTd()
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+console.log("***** ESERCIZIO 23 *****");
+
+function setColor() {
+  let aRed = document.querySelectorAll("a");
+  for (let i = 0; i < aRed.length; i++) {
+    aRed[i].style.backgroundColor = "red";
+  }
+}
+
+setColor();
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+console.log("***** ESERCIZIO 24 *****");
+
+function addItem(){
+  let lista = document.getElementById("myList");
+  let item = document.createElement("li")
+  item.innerText="pippo";
+  lista.appendChild(item);
+}
+
+addItem()
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+console.log("***** ESERCIZIO 25 *****");
 
+function deleteAll () {
+  let lista = document.getElementById("myList");
+  lista.innerHTML= ""
+}
+
+deleteAll()
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+console.log("***** ESERCIZIO 26 *****");
 
+function addClass(){
+  let trs = document.querySelectorAll("tr")
+  trs.forEach(element => {
+    element.classList.add("test")
+  });
+}
+
+addClass()
 // [EXTRA] JS Avanzato
 
 /* ESERCIZIO 27
