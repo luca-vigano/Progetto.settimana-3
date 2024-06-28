@@ -60,8 +60,8 @@ console.log(me)
 console.log("***** ESERCIZIO E *****");
 
 for (let i = 0; i < me.length; i++) {
-  let car = me[i];
-  me.skills = ["html", "css"];
+  let item = me[i];
+  item.skills = ["html", "css"];
 };
 
 console.log(me);
@@ -70,23 +70,23 @@ console.log(me);
 */
 console.log("***** ESERCIZIO F *****");
 
-// let newSkill = "javaScript";
+let newSkill = "javaScript";
 
-// me.forEach((person) => {
-//   person.skills.push(newSkill);   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// });
+me.forEach((person) => {
+  person.skills.push(newSkill); 
+});
 
-// console.log(me);
+console.log(me);
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
 */
 
-// console.log("***** ESERCIZIO G *****");
+console.log("***** ESERCIZIO G *****");
 
-// me.forEach((person) => person.skills.pop() +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// )
+me.forEach((person) => person.skills.pop() 
+)
 
-// console.log(me)
+console.log(me)
 // Funzioni
 
 /* ESERCIZIO 1
@@ -135,15 +135,13 @@ console.log(splitMe("ciao sono pippo"));
 */
 console.log("***** ESERCIZIO 4 *****");
 
-// function deleteOne(str, booleano) {
-//   if (booleano === true) {
-//     return str.splice(0, 1);                          +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//   } else {
-//     return str.pop();
-//   }
-
-// }
-// console.log(deleteOne("ciao", true));
+function deleteOne(str, booleano) {
+  if (booleano === true) 
+          return str.slice(1, str.length)
+    else
+        return str.slice(0, -1)
+}
+console.log(deleteOne("ciao", false));
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
@@ -233,22 +231,27 @@ console.log("***** ESERCIZIO 9 *****");
 
 
 function howManyDays(date) {
-
+ let currentDate = new Date();
+ let differenceMillis = date - currentDate;
+  let differenceDays = Math.floor(differenceMillis / (1000 * 60 * 60 * 24));
+  return differenceDays
 }
+
+console.log(howManyDays(new Date(2024,2,28)))
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
 console.log("***** ESERCIZIO 10*****");
 
-let myBirthday = new Date(1990, 5, 28);
+let myBirthday = new Date(1990, 5, 27);
 
 function isTodayMyBirthday(data) {
   let currentDate = new Date();
   let currentMonth = currentDate.getMonth();
   let currentDay = currentDate.getDate()
 
-  let myBirthdayDay = myBirthday.getDay();
+  let myBirthdayDay = myBirthday.getDate();
   let myBirthdayMonth = myBirthday.getMonth();
   if (currentDay === myBirthdayDay && currentMonth === myBirthdayMonth) {
     return true;
