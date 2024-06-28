@@ -125,7 +125,7 @@ console.log(whoIsBigger(13, 10));
 console.log("***** ESERCIZIO 3 *****");
 
 function splitMe(string) {
-        return string.split(" ");
+  return string.split(" ");
 }
 
 console.log(splitMe("ciao sono pippo"));
@@ -135,23 +135,54 @@ console.log(splitMe("ciao sono pippo"));
 */
 console.log("***** ESERCIZIO 4 *****");
 
-function deleteOne(){
+// function deleteOne(str, booleano) {
+//   if (booleano === true) {
+//     return str.splice(0, 1);                          +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//   } else {
+//     return str.pop();
+//   }
 
-}
-
+// }
+// console.log(deleteOne("ciao", true));
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+console.log("***** ESERCIZIO 5 *****");
+
+
+function onlyLetters(arr) {
+  const newArr = arr.filter((el) => {
+    return typeof el === "string";
+  })
+  return newArr;
+}
+
+console.log(onlyLetters([1, 2, "a", "b", 3, "d",]))
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 
+console.log("***** ESERCIZIO 6 *****");
+
+const regexEmail= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+function isThisAnEmail(email) {
+ return regexEmail.test(email)
+};
+console.log(isThisAnEmail("pippo@pluto.com"))
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+console.log("***** ESERCIZIO 7 *****");
+
+function whatDayIsIt(){
+  let currentDate = new Date();
+  let currentDay = currentDate.getDay();
+  console.log(currentDay);
+}
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
